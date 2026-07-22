@@ -1,4 +1,5 @@
 ## Codebase Notes
+0. `struct_free()` frees internal members, `struct_delete()` also frees the struct itself
 1. returns `0` for success, non-zero or `NULL` for error case
 2. supports `init-free` or `new-delete` pattern:
 - `init-free`: stack allocate the `struct` then call `init`, later call `free`
