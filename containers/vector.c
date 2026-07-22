@@ -19,13 +19,13 @@ void vector_free(vector_t* v) {
     if (v == NULL) { return; }
 
     free(v->arr);
+    v->arr = NULL;
 }
 
 vector_t* vector_new(size_t element_size, size_t initial_capacity) {
     vector_t* v = malloc(sizeof(vector_t));
     if (v == NULL) { return NULL; }
-    int ret = vector_init(v, element_size, initial_capacity);
-    if (ret != 0) { 
+    if (vector_init(v, element_size, initial_capacity) != 0){
         free(v);
         return NULL; 
     }
@@ -35,7 +35,7 @@ vector_t* vector_new(size_t element_size, size_t initial_capacity) {
 void vector_delete(vector_t* v) {
     if (v == NULL) { return; }
 
-    free(v->arr);
+    vector_free(v);
     free(v);
 }
 
