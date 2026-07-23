@@ -8,6 +8,7 @@
 4. `a*b > SIZE_MAX` means overflow, rearrange `a > SIZE_MAX/b`
 5. value in `data` pointer is copied into the container's `data` field
 6. set pointer members to `NULL` after calling `container_free()` to prevent double free
+7. storing `char*` into space pointed-to by `void*` requires `strlen()+1` bytes
 
 ## Be Careful
 - Does shallow copy run into problems?
